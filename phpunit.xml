@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/10.1/phpunit.xsd" bootstrap="tests/bootstrap.php" colors="true" executionOrder="depends,defects" beStrictAboutCoverageMetadata="true" beStrictAboutOutputDuringTests="true" beStrictAboutTodoAnnotatedTests="true" failOnRisky="true" failOnWarning="true" defaultTestSuite="unit" cacheDirectory="tools/.phpunit.cache" requireCoverageMetadata="true">
+  <php>
+    <!-- uncomment next line to enable xdebug-->
+    <!-- <env name="XDEBUG_TRIGGER" value="phpunit" /> -->
+    <ini name="display_errors" value="1"/>
+    <ini name="error_reporting" value="-1"/>
+  </php>
+  <testsuites>
+    <testsuite name="unit">
+      <directory>tests/unit</directory>
+    </testsuite>
+    <testsuite name="all">
+      <directory>tests/unit</directory>
+    </testsuite>
+  </testsuites>
+  <coverage>
+    <report>
+      <clover outputFile="tools/.reports/coverage/clover.xml"/>
+      <html outputDirectory="../../html/public/dev-reports/coverage/symfony-baseapp-bundle"/>
+      <xml outputDirectory="tools/.reports/coverage/coverage-xml"/>
+    </report>
+  </coverage>
+  <logging>
+    <junit outputFile="tools/.reports/coverage/junit.xml"/>
+  </logging>
+  <source>
+    <include>
+      <directory suffix=".php">src</directory>
+    </include>
+  </source>
+</phpunit>

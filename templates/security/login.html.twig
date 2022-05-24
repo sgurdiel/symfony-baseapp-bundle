@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('form') }}
+{% endblock %}
+
+{% block title %}{{ 'signIn'|trans }}{% endblock %}
+
+{% block body %}
+<form action="{{ path('app_login') }}" method="post" class="centeredForm">
+    {% if formHeaderRoute is defined %}
+    <h1><a href="{{ path(formHeaderRoute) }}" class="actionItem">{{ formHeaderText is defined ? formHeaderText : 'home'|trans }}</a></h1>
+    <h2>{{ 'signIn'|trans }}</h2>
+    {% else %}
+    <h1>{{ 'signIn'|trans }}</h1>
+    {% endif %}
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+    <div>
+        <label for="_username">{{ 'usernameField'|trans }}</label>
+        <input type="text" value="{{ last_username }}" name="_username" id="_username" autocomplete="username" required>
+    </div>
+    <div>
+        <label for="_password">{{ 'password'|trans }}</label>
+        <input type="password" name="_password" id="_password" autocomplete="current-password" required>
+    </div>
+    <div>
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+    </div>
+    <button type="submit">{{ 'signIn'|trans }}</button>
+{% if formFooterLinks is defined %}
+    {% for link in formFooterLinks %}
+        <a href="{{ link.href }}" class="actionItem">{{ link.text|trans }}</a>
+    {% endfor %}
+{% endif %}
+</form>
+{% endblock %}
