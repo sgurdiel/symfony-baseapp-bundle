@@ -12,7 +12,7 @@ use xVer\Symfony\Bundle\BaseAppBundle\Application\Query\Account\AccountQueryInte
 use xVer\Symfony\Bundle\BaseAppBundle\Ui\Entity\AuthUser;
 
 /**
- * @template-implements PasswordUpgraderInterface<AuthUser>
+ * @template-implements UserProviderInterface<UserInterface>
  */
 class Provider implements UserProviderInterface, PasswordUpgraderInterface
 {

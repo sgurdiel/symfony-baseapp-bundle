@@ -12,11 +12,10 @@ trait ExceptionTranslatorTrait
     public function getTranslatedException(\Throwable $th, TranslatorInterface $translator, bool $asHtml = true): \Exception
     {
         $message = $this->traverseExceptionTree($th, $translator);
-        return (
+        return
             $asHtml
             ? new DomainException(nl2br((string) $message), $th->getCode())
-            : new DomainException($message, $th->getCode())
-        );
+            : new DomainException($message, $th->getCode());
     }
 
     private function traverseExceptionTree(
