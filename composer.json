@@ -5,11 +5,11 @@
     "keywords": [],
     "license": "AGPL-3.0-or-later",
     "require": {
-        "php": "^8.1",
-        "symfony/security-bundle": "6.4.*",
-        "symfony/form": "6.4.*",
-        "symfony/uid": "6.4.*",
-        "symfony/validator": "6.4.*",
+        "php": "^8.2",
+        "symfony/security-bundle": "7.0.*",
+        "symfony/form": "7.0.*",
+        "symfony/uid": "7.0.*",
+        "symfony/validator": "7.0.*",
         "xver/domain-bundle": "^1.0"
     },
     "require-dev": {
