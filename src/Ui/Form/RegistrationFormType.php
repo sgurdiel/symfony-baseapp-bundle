@@ -52,6 +52,7 @@ class RegistrationFormType extends AbstractType
             ->add('agreeTerms', CheckboxType::class, [
                 'label' => $options['agreeTerms_label'],
                 'label_html' => true,
+                'translation_domain' => false,
                 'required' => true,
                 'constraints' => [
                     new IsTrue([
