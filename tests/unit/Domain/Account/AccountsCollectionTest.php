@@ -5,7 +5,6 @@ namespace Tests\unit\Domain\Account;
 use PHPUnit\Framework\TestCase;
 use xVer\Symfony\Bundle\BaseAppBundle\Domain\Account\Account;
 use xVer\Symfony\Bundle\BaseAppBundle\Domain\Account\AccountsCollection;
-use xVer\Symfony\Bundle\BaseAppBundle\Domain\Account\AccountsCollectionIterator;
 
 /**
  * @covers xVer\Symfony\Bundle\BaseAppBundle\Domain\Account\AccountsCollection
