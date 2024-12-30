@@ -26,6 +26,7 @@ class AccountTest extends TestCase
         $this->assertContains('ROLE_ADMIN', $account->getRoles());
         $this->assertSame($email, $account->getEmail());
         $this->assertSame($password, $account->getPassword());
+        $this->assertSame($email, $account->getIdentifier());
     }
 
     public function testUpdateAccountWithInvalidEmailThrowsException(): void
@@ -33,6 +34,15 @@ class AccountTest extends TestCase
         $this->expectException(DomainException::class);
         $this->expectExceptionMessage('error_invalid_email');
         $account = new Account('test@example.com', 'password', ['ROLE_USER']);
+        $invalid_email = 'test@example';
+        $account->setEmail($invalid_email);
+    }
+
+    public function testUpdateAccountWithEmptyEmailThrowsException(): void
+    {
+        $this->expectException(DomainException::class);
+        $this->expectExceptionMessage('error_invalid_email');
+        $account = new Account('', 'password', ['ROLE_USER']);
         $invalid_email = 'test@example';
         $account->setEmail($invalid_email);
     }

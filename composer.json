@@ -6,10 +6,10 @@
     "license": "AGPL-3.0-or-later",
     "require": {
         "php": "^8.2",
-        "symfony/security-bundle": "7.1.*",
-        "symfony/form": "7.1.*",
-        "symfony/uid": "7.1.*",
-        "symfony/validator": "7.1.*",
+        "symfony/security-bundle": "7.2.*",
+        "symfony/form": "7.2.*",
+        "symfony/uid": "7.2.*",
+        "symfony/validator": "7.2.*",
         "xver/domain-bundle": "^1.0"
     },
     "require-dev": {

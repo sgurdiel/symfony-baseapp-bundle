@@ -8,6 +8,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class AuthUser implements UserInterface, PasswordAuthenticatedUserInterface
 {
     /**
+     * @psalm-param non-empty-string $identifier
      * @param array<string> $roles
      */
     public function __construct(

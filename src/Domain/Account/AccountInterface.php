@@ -6,6 +6,11 @@ use xVer\Bundle\DomainBundle\Domain\EntityObjectInterface;
 
 interface AccountInterface extends EntityObjectInterface
 {
+    /**
+     * @psalm-return non-empty-string
+     */
+    public function getIdentifier(): string;
+
     public function getEmail(): string;
 
     /**

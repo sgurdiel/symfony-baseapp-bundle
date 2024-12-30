@@ -12,6 +12,7 @@ class Account implements AccountInterface
 {
     final public const AVAILABLE_ROLES = ['ROLE_ADMIN','ROLE_USER'];
     protected Uuid $id;
+    /** @psalm-var non-empty-string $email */
     protected string $email;
     /** @var list<string> $roles */
     protected array $roles = ['ROLE_USER'];
@@ -29,6 +30,11 @@ class Account implements AccountInterface
         $this->setRoles($roles);
     }
 
+    public function getIdentifier(): string
+    {
+        return $this->getEmail();
+    }
+
     public function getId(): Uuid
     {
         return $this->id;
@@ -42,6 +48,9 @@ class Account implements AccountInterface
         return $this->getId()->equals($otherEntityObject->getId());
     }
 
+    /**
+     * @psalm-return non-empty-string
+     */
     public function getEmail(): string
     {
         return $this->email;
@@ -49,7 +58,10 @@ class Account implements AccountInterface
 
     final public function setEmail(string $email): self
     {
-        if (false === filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        if (
+            false === filter_var($email, FILTER_VALIDATE_EMAIL)
+            || empty($email)
+        ) {
             throw new DomainException(
                 new TranslationVO('error_invalid_email', [], TranslationVO::DOMAIN_VALIDATORS),
                 'email'

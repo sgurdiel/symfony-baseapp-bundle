@@ -29,7 +29,7 @@ class Provider implements UserProviderInterface, PasswordUpgraderInterface
         try {
             $account = $this->accountQuery->byIdentifier($identifier);
             return new AuthUser(
-                $identifier,
+                $account->getIdentifier(),
                 $account->getRoles(),
                 $account->getPassword()
             );
